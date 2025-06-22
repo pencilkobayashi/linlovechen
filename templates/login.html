@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日记本登录</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>🔐 请输入密码</h2>
+    <form method="POST">
+        <input type="password" name="password" placeholder="密码" required>
+        <button type="submit">登录</button>
+    </form>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
