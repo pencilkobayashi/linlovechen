@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python 网页记事本</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>我的日记本</h1>
+        <textarea id="content" placeholder="在这里写下你的日记..."></textarea>
+        <button id="save-btn">保存日记</button>
+        <div id="notes-list"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
