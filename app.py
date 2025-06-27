@@ -1,43 +1,39 @@
-from flask import Flask, render_template, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from flask import Flask, render_template, request, redirect, url_for, session, g
+from config import Config
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///notes.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+app.config.from_object(Config)
 
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+@app.before_request
+def check_login():
+    """全局登录检查：排除登录页和静态文件"""
+    exempted_routes = ['login', 'static']
+    if not session.get('logged_in') and request.endpoint not in exempted_routes:
+        return redirect(url_for('login'))
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['password'] == app.config['PASSWORD']:
+            session['logged_in'] = True
+            return redirect(url_for('home'))
+        else:
+            error = "密码错误！请重试。"
+    return render_template('login.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('protected.html')
 
-@app.route('/api/notes', methods=['GET', 'POST'])
-def handle_notes():
-    if request.method == 'POST':
-        content = request.json.get('content')
-        if not content:
-            return jsonify({'error': 'Content is required'}), 400
-        
-        note = Note(content=content)
-        db.session.add(note)
-        db.session.commit()
-        return jsonify({'id': note.id}), 201
-    
-    notes = Note.query.order_by(Note.created_at.desc()).all()
-    return jsonify([{
-        'id': note.id,
-        'content': note.content,
-        'created_at': note.created_at.isoformat()
-    } for note in notes])
+@app.route('/another-page')
+def another_page():
+    return render_template('protected.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

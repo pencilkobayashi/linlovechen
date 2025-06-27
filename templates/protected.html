@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>受保护的内容</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>欢迎访问！</h1>
+    <p>这是受保护的内容。</p>
+    <a href="{{ url_for('another_page') }}">访问另一个页面</a>
+    <br><br>
+    <a href="{{ url_for('logout') }}">退出登录</a>
+</body>
+</html>
