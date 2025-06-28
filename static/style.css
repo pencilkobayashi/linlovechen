@@ -3,25 +3,170 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    line-height: 1.6;
+}
+
+/* 基础容器样式 */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 textarea {
     width: 100%;
     height: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 .note {
     border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
+    background: #f9f9f9;
+}
+
+/* 导航栏响应式样式 */
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-bar a {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.nav-bar a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 手机端适配 */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    textarea {
+        height: 150px;
+        font-size: 16px;
+        padding: 12px;
+    }
+    
+    button {
+        padding: 15px 20px;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .nav-bar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 0;
+    }
+    
+    .nav-bar a {
+        flex: none;
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .note {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .note small {
+        font-size: 12px;
+    }
+    
+    .note p {
+        margin: 8px 0 0 0;
+        font-size: 14px;
+    }
+}
+
+/* 超小屏幕适配 */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    textarea {
+        height: 120px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    button {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    .nav-bar a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
 }

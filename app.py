@@ -34,6 +34,12 @@ def logout():
 def home():
     return render_template('index.html')
 
+@app.route('/notes')
+def notes_list():
+    """查看所有日记列表"""
+    notes = load_notes()
+    return render_template('notes_list.html', notes=notes)
+
 @app.route('/another-page')
 def another_page():
     return render_template('protected.html')

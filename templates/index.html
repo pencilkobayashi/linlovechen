@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python 网页记事本</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .recent-notes {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .recent-notes h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .recent-notes p {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .recent-notes a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .recent-notes a:hover {
+            text-decoration: underline;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .recent-notes {
+                margin-top: 20px;
+                padding-top: 15px;
+            }
+            .recent-notes h3 {
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <div class="nav-bar">
+            <a href="{{ url_for('home') }}">✏️ 写日记</a>
+            <a href="{{ url_for('notes_list') }}">📖 日记列表</a>
+            <a href="{{ url_for('logout') }}">🚪 退出登录</a>
+        </div>
+        
         <h1>我的日记本</h1>
         <textarea id="content" placeholder="在这里写下你的日记..."></textarea>
         <button id="save-btn">保存日记</button>
-        <div id="notes-list"></div>
+        
+        <div class="recent-notes">
+            <h3>最近的日记</h3>
+            <div id="notes-list"></div>
+            <p><a href="{{ url_for('notes_list') }}">查看所有日记 →</a></p>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
