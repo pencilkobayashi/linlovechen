@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const recentNotes = notes.slice(-3).reverse();
             
             if (recentNotes.length === 0) {
-                notesList.innerHTML = '<div style="text-align: center;"><div style="font-size: 20px; margin-bottom: 10px;">(∪ ◡ ∪)</div><p style="color: #ff8fa3; font-style: italic;">💕 我们的爱情日记还在等待第一个故事呢！丽君宝宝，快来和小黑一起开始记录吧～</p></div>';
+                notesList.innerHTML = '<div style="text-align: center;"><div style="font-size: 20px; margin-bottom: 10px;">(∪ ◡ ∪)</div><p style="color: #ff8fa3; font-style: italic;">💕 我们的爱情日记还在等待第一个故事呢！小君宝宝，快来和小黑一起开始记录吧～</p></div>';
                 return;
             }
             
