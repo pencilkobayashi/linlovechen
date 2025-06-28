@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的日记列表</title>
+    <title>🐾 小黑与丽君宝宝的美好回忆</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .note-item {
@@ -53,30 +53,44 @@
         }
     </style>
 </head>
-<body>
+  <body>
     <div class="container">
-        <div class="nav-bar">
-            <a href="{{ url_for('home') }}">✏️ 写日记</a>
-            <a href="{{ url_for('notes_list') }}">📖 日记列表</a>
-            <a href="{{ url_for('logout') }}">🚪 退出登录</a>
+        <div class="dog-decoration">
+            ∪･ω･∪ ～♪
         </div>
         
-        <h1>我的日记列表</h1>
+        <div class="nav-bar">
+            <a href="{{ url_for('home') }}">💕 记录甜蜜时光</a>
+            <a href="{{ url_for('notes_list') }}">📚 我们的回忆册</a>
+            <a href="{{ url_for('logout') }}">🚪 暂时离开小窝</a>
+        </div>
+        
+        <h1>💕 小黑与丽君宝宝的专属爱情档案 💕</h1>
         
         {% if notes %}
-            <p class="notes-count">📊 共有 {{ notes|length }} 篇日记</p>
+            <p class="notes-count">💖 我们已经一起创造了 {{ notes|length }} 个珍贵回忆啦！每一个都是我们爱情的见证～</p>
+            <div class="paw-print">🐾</div>
             {% for note in notes|reverse %}
                 <div class="note-item">
-                    <div class="note-date">📅 {{ note.created_at[:19]|replace('T', ' ') }}</div>
+                    <div class="note-date">🕐 {{ note.created_at[:19]|replace('T', ' ') }}</div>
                     <div class="note-content">{{ note.content }}</div>
                 </div>
             {% endfor %}
         {% else %}
             <div class="no-notes">
-                <p>🌟 还没有写过日记哦！</p>
-                <p><a href="{{ url_for('home') }}">点击这里开始写第一篇日记</a></p>
+                <div class="dog-decoration">
+                    (∪ ◡ ∪)
+                </div>
+                <p>💕 我们的爱情故事集还在等待第一页的书写呢！</p>
+                <p>💖 <a href="{{ url_for('home') }}">来吧宝贝，让我们一起开始记录属于我们的甜蜜时光～</a></p>
             </div>
         {% endif %}
+        
+        <div class="dog-decoration" style="margin-top: 40px;">
+            <span class="paw-print">💕</span>
+            ∪･ω･∪ ♡ 谢谢丽君宝宝愿意和小黑一起记录我们独一无二的爱情故事
+            <span class="paw-print">💕</span>
+        </div>
     </div>
 </body>
 </html> 

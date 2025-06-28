@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python 网页记事本</title>
+    <title>小黑与丽君宝宝的密码记录 - 记录我们的美好时光</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .recent-notes {
@@ -42,20 +42,31 @@
 </head>
 <body>
     <div class="container">
-        <div class="nav-bar">
-            <a href="{{ url_for('home') }}">✏️ 写日记</a>
-            <a href="{{ url_for('notes_list') }}">📖 日记列表</a>
-            <a href="{{ url_for('logout') }}">🚪 退出登录</a>
+        <div class="dog-decoration">
+            ∪･ω･∪ ～♪
         </div>
         
-        <h1>我的日记本</h1>
-        <textarea id="content" placeholder="在这里写下你的日记..."></textarea>
-        <button id="save-btn">保存日记</button>
+        <div class="nav-bar">
+            <a href="{{ url_for('home') }}">💕 记录甜蜜时光</a>
+            <a href="{{ url_for('notes_list') }}">📚 我们的回忆册</a>
+            <a href="{{ url_for('logout') }}">🚪 暂时离开小窝</a>
+        </div>
+        
+        <h1>🐕 小黑与丽君宝宝的温馨日记本 🐕</h1>
+        <div class="paw-print">🐾</div>
+        <textarea id="content" placeholder="亲爱的丽君宝宝～今天我们又有什么甜蜜的小故事呢？小黑想要听听你的心里话，记录下我们每一个珍贵的瞬间💕"></textarea>
+        <button id="save-btn">💖 将这份爱意永远珍藏 💖</button>
         
         <div class="recent-notes">
-            <h3>最近的日记</h3>
+            <h3>💕 我们最近的甜蜜时光 💕</h3>
             <div id="notes-list"></div>
-            <p><a href="{{ url_for('notes_list') }}">查看所有日记 →</a></p>
+            <p><a href="{{ url_for('notes_list') }}">💖 翻阅我们完整的爱情故事集 →</a></p>
+        </div>
+        
+        <div class="dog-decoration" style="margin-top: 30px;">
+            <span class="paw-print">💕</span>
+            小黑陪丽君宝宝一起记录我们的爱情故事 (∪｡∪)♡
+            <span class="paw-print">💕</span>
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>

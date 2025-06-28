@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录</title>
+    <title>🐕 进入小黑与丽君宝宝的温馨日记本</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -72,12 +72,21 @@
   </head>
   <body>
       <div class="container">
-          <h2>🔐 请输入访问密码</h2>
-          {% if error %}<div class="error">{{ error }}</div>{% endif %}
-          <form method="post">
-              <input type="password" name="password" placeholder="输入密码" required>
-              <button type="submit">🚪 登录</button>
-          </form>
+          <div style="text-align: center; font-size: 24px; margin-bottom: 20px; animation: dogWag 2s ease-in-out infinite;">
+              ∪･ω･∪
+          </div>
+                     <h2>💕 欢迎回到我们的爱情小屋 💕</h2>
+           <p style="text-align: center; color: #ff8fa3; margin-bottom: 20px;">亲爱的丽君宝宝～请输入我们的专属密码，进入这个只属于我们两个人的甜蜜空间💖</p>
+           {% if error %}<div class="error">{{ error }} 哎呀～密码好像不对呢，再试试我们的小秘密吧💕</div>{% endif %}
+                     <form method="post">
+               <input type="password" name="password" placeholder="💕 输入我们爱情的专属密码吧～" required>
+               <button type="submit">💖 开启我们的甜蜜回忆之旅</button>
+           </form>
+           <div style="text-align: center; margin-top: 20px; font-size: 16px; color: #ff8fa3;">
+               <span class="paw-print">💕</span>
+               小黑永远爱丽君宝宝～
+               <span class="paw-print">💕</span>
+           </div>
       </div>
   </body>
 </html>
