@@ -7,19 +7,41 @@ body {
     background: linear-gradient(135deg, #fff5f5 0%, #ffe4e1 100%);
     color: #5d4e75;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
 }
 
 /* 小狗装饰元素 */
 .dog-decoration {
     text-align: center;
-    font-size: 20px;
-    margin: 10px 0;
+    margin: 15px 0;
     animation: dogWag 2s ease-in-out infinite;
 }
 
+.dog-gif {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-image: url('/static/couple-dance.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dog-gif-small {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-image: url('/static/couple-dance.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
 @keyframes dogWag {
-    0%, 100% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
+    0%, 100% { transform: rotate(-1deg) scale(1); }
+    50% { transform: rotate(1deg) scale(1.05); }
 }
 
 .paw-print {
@@ -30,9 +52,317 @@ body {
     animation: pawPrint 3s ease-in-out infinite;
 }
 
+.heart-gif {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-image: url('/static/heart-dog.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin: 0 3px;
+    animation: heartBeat 2s ease-in-out infinite;
+    /* 柔和的圆角，让白色背景更和谐 */
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.heart-gif-large {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-image: url('/static/heart-dog.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin: 0 5px;
+    animation: heartBeat 2s ease-in-out infinite;
+    /* 柔和的圆角，让白色背景更和谐 */
+    border-radius: 10px;
+    padding: 3px;
+}
+
 @keyframes pawPrint {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 0.8; }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* 流星背景效果 */
+.shooting-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, #ffffff, #f0f0f0, #e8e8e8);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffffff, 0 0 25px rgba(255,255,255,0.8), 0 0 35px rgba(255,255,255,0.6);
+    animation: shooting 4s linear infinite;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.8), transparent);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    animation: shining 4s linear infinite;
+}
+
+.shooting-star:nth-child(1) {
+    top: -5%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 2.5s;
+}
+
+.shooting-star:nth-child(1)::before {
+    animation-duration: 2.5s;
+}
+
+.shooting-star:nth-child(2) {
+    top: -8%;
+    left: 25%;
+    animation-delay: 1.2s;
+    animation-duration: 1.8s;
+}
+
+.shooting-star:nth-child(2)::before {
+    animation-duration: 1.8s;
+}
+
+.shooting-star:nth-child(3) {
+    top: -3%;
+    left: 45%;
+    animation-delay: 2.5s;
+    animation-duration: 3.2s;
+}
+
+.shooting-star:nth-child(3)::before {
+    animation-duration: 3.2s;
+}
+
+.shooting-star:nth-child(4) {
+    top: -10%;
+    left: 65%;
+    animation-delay: 0.8s;
+    animation-duration: 1.5s;
+}
+
+.shooting-star:nth-child(4)::before {
+    animation-duration: 1.5s;
+}
+
+.shooting-star:nth-child(5) {
+    top: -6%;
+    left: 80%;
+    animation-delay: 1.8s;
+    animation-duration: 2.8s;
+}
+
+.shooting-star:nth-child(5)::before {
+    animation-duration: 2.8s;
+}
+
+.shooting-star:nth-child(6) {
+    top: -12%;
+    left: 15%;
+    animation-delay: 3.2s;
+    animation-duration: 2.2s;
+}
+
+.shooting-star:nth-child(6)::before {
+    animation-duration: 2.2s;
+}
+
+.shooting-star:nth-child(7) {
+    top: -4%;
+    left: 35%;
+    animation-delay: 4s;
+    animation-duration: 3.5s;
+}
+
+.shooting-star:nth-child(7)::before {
+    animation-duration: 3.5s;
+}
+
+.shooting-star:nth-child(8) {
+    top: -15%;
+    left: 55%;
+    animation-delay: 0.3s;
+    animation-duration: 1.2s;
+}
+
+.shooting-star:nth-child(8)::before {
+    animation-duration: 1.2s;
+}
+
+.shooting-star:nth-child(9) {
+    top: -7%;
+    left: 75%;
+    animation-delay: 2.8s;
+    animation-duration: 2.6s;
+}
+
+.shooting-star:nth-child(9)::before {
+    animation-duration: 2.6s;
+}
+
+.shooting-star:nth-child(10) {
+    top: -9%;
+    left: 90%;
+    animation-delay: 1.5s;
+    animation-duration: 3.8s;
+}
+
+.shooting-star:nth-child(10)::before {
+    animation-duration: 3.8s;
+}
+
+.shooting-star:nth-child(11) {
+    top: -11%;
+    left: 5%;
+    animation-delay: 2.1s;
+    animation-duration: 1.9s;
+}
+
+.shooting-star:nth-child(11)::before {
+    animation-duration: 1.9s;
+}
+
+.shooting-star:nth-child(12) {
+    top: -2%;
+    left: 40%;
+    animation-delay: 3.8s;
+    animation-duration: 3.0s;
+}
+
+.shooting-star:nth-child(12)::before {
+    animation-duration: 3.0s;
+}
+
+.shooting-star:nth-child(13) {
+    top: -13%;
+    left: 70%;
+    animation-delay: 0.7s;
+    animation-duration: 1.6s;
+}
+
+.shooting-star:nth-child(13)::before {
+    animation-duration: 1.6s;
+}
+
+.shooting-star:nth-child(14) {
+    top: -5%;
+    left: 20%;
+    animation-delay: 4.5s;
+    animation-duration: 2.9s;
+}
+
+.shooting-star:nth-child(14)::before {
+    animation-duration: 2.9s;
+}
+
+.shooting-star:nth-child(15) {
+    top: -8%;
+    left: 85%;
+    animation-delay: 1.9s;
+    animation-duration: 4.2s;
+}
+
+.shooting-star:nth-child(15)::before {
+    animation-duration: 4.2s;
+}
+
+@keyframes shooting {
+    0% {
+        transform: translateX(0) translateY(0) rotate(-45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-600px) translateY(600px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes shining {
+    0% { width: 0; }
+    50% { width: 80px; }
+    100% { width: 0; }
+}
+
+/* 浪漫的星星点点 */
+.twinkling-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.twinkling-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ffffff, 0 0 12px rgba(255,255,255,0.8);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.twinkling-star:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+.twinkling-star:nth-child(2) { top: 25%; left: 85%; animation-delay: 1s; }
+.twinkling-star:nth-child(3) { top: 35%; left: 45%; animation-delay: 2s; }
+.twinkling-star:nth-child(4) { top: 65%; left: 25%; animation-delay: 0.5s; }
+.twinkling-star:nth-child(5) { top: 75%; left: 75%; animation-delay: 1.5s; }
+.twinkling-star:nth-child(6) { top: 85%; left: 55%; animation-delay: 2.5s; }
+.twinkling-star:nth-child(7) { top: 5%; left: 65%; animation-delay: 3s; }
+.twinkling-star:nth-child(8) { top: 45%; left: 5%; animation-delay: 0.8s; }
+.twinkling-star:nth-child(9) { top: 10%; left: 35%; animation-delay: 1.8s; }
+.twinkling-star:nth-child(10) { top: 55%; left: 90%; animation-delay: 2.2s; }
+.twinkling-star:nth-child(11) { top: 80%; left: 10%; animation-delay: 0.3s; }
+.twinkling-star:nth-child(12) { top: 30%; left: 70%; animation-delay: 2.8s; }
+.twinkling-star:nth-child(13) { top: 70%; left: 40%; animation-delay: 1.2s; }
+.twinkling-star:nth-child(14) { top: 90%; left: 80%; animation-delay: 3.5s; }
+.twinkling-star:nth-child(15) { top: 8%; left: 50%; animation-delay: 4s; }
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: scale(0.8);
+        box-shadow: 0 0 6px #ffffff;
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.3);
+        box-shadow: 0 0 15px #ffffff, 0 0 25px rgba(255,255,255,0.8);
+    }
 }
 
 /* 基础容器样式 */
@@ -131,17 +461,7 @@ button:active {
     position: relative;
 }
 
-.nav-bar::before {
-    content: "🐕 ∼ 🐕 ∼ 🐕";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    padding: 0 15px;
-    font-size: 12px;
-    color: #ff8fa3;
-}
+
 
 .nav-bar a {
     flex: 1;

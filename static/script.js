@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const recentNotes = notes.slice(-3).reverse();
             
             if (recentNotes.length === 0) {
-                notesList.innerHTML = '<div style="text-align: center;"><div style="font-size: 20px; margin-bottom: 10px;">(∪ ◡ ∪)</div><p style="color: #ff8fa3; font-style: italic;">💕 我们的爱情日记还在等待第一个故事呢！小君宝宝，快来和小黑一起开始记录吧～</p></div>';
+                notesList.innerHTML = '<div style="text-align: center;"><div class="dog-gif" style="margin: 0 auto 10px;"></div><p style="color: #ff8fa3; font-style: italic;"><div class="heart-gif"></div> 我们的爱情日记还在等待第一个故事呢！小君宝宝，快来和小黑一起开始记录吧～</p></div>';
                 return;
             }
             
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const noteEl = document.createElement('div');
                 noteEl.className = 'note';
                 noteEl.innerHTML = `
-                    <small>💕 ${new Date(note.created_at).toLocaleString()}</small>
-                    <p>${note.content.length > 80 ? note.content.substring(0, 80) + '... 💖 点击查看我们完整的甜蜜回忆～' : note.content}</p>
+                    <small><div class="heart-gif"></div> ${new Date(note.created_at).toLocaleString()}</small>
+                    <p>${note.content.length > 80 ? note.content.substring(0, 80) + '... <div class="heart-gif"></div> 点击查看我们完整的甜蜜回忆～' : note.content}</p>
                 `;
                 notesList.appendChild(noteEl);
             });
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentEl.value = '';
             // 显示成功提示
             const successMsg = document.createElement('div');
-            successMsg.innerHTML = '💖 又一个珍贵的回忆被小黑悄悄收藏了～';
+            successMsg.innerHTML = '<div class="heart-gif"></div> 又一个珍贵的回忆被小黑悄悄收藏了～';
             successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: linear-gradient(45deg, #ff8fa3, #ffb6c1); color: white; padding: 12px 20px; border-radius: 25px; z-index: 1000; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);';
             document.body.appendChild(successMsg);
             setTimeout(() => {

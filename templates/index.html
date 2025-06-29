@@ -39,34 +39,73 @@
             }
         }
     </style>
-</head>
-<body>
-    <div class="container">
+  </head>
+  <body>
+      <!-- 浪漫的流星背景 -->
+      <div class="shooting-stars">
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+      </div>
+      
+      <!-- 闪烁的星星背景 -->
+      <div class="twinkling-stars">
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+          <div class="twinkling-star"></div>
+      </div>
+      
+      <div class="container">
         <div class="dog-decoration">
-            ∪･ω･∪ ～♪
+            <div class="dog-gif"></div>
+            <p style="margin: 5px 0; color: #ff8fa3; font-size: 14px;">小黑和小君宝宝～♪</p>
         </div>
         
         <div class="nav-bar">
-            <a href="{{ url_for('home') }}">💕 记录甜蜜时光</a>
+            <a href="{{ url_for('home') }}"><div class="heart-gif"></div> 记录甜蜜时光</a>
             <a href="{{ url_for('notes_list') }}">📚 我们的回忆册</a>
             <a href="{{ url_for('logout') }}">🚪 暂时离开小窝</a>
         </div>
         
-        <h1>🐕 小黑与小君宝宝的温馨日记本 🐕</h1>
-        <div class="paw-print">🐾</div>
-        <textarea id="content" placeholder="亲爱的小君宝宝～今天我们又有什么甜蜜的小故事呢？小黑想要听听你的心里话，记录下我们每一个珍贵的瞬间💕"></textarea>
-        <button id="save-btn">💖 将这份爱意永远珍藏 💖</button>
+        <h1>小黑与小君宝宝的温馨日记本</h1>
+        <div class="heart-gif"></div>
+        <textarea id="content" placeholder="亲爱的小君宝宝～今天我们又有什么甜蜜的小故事呢？小黑想要听听你的心里话，记录下我们每一个珍贵的瞬间"></textarea>
+        <button id="save-btn"><div class="heart-gif-large"></div> 将这份爱意永远珍藏 <div class="heart-gif-large"></div></button>
         
         <div class="recent-notes">
-            <h3>💕 我们最近的甜蜜时光 💕</h3>
+            <h3><div class="heart-gif"></div> 我们最近的甜蜜时光 <div class="heart-gif"></div></h3>
             <div id="notes-list"></div>
-            <p><a href="{{ url_for('notes_list') }}">💖 翻阅我们完整的爱情故事集 →</a></p>
+            <p><a href="{{ url_for('notes_list') }}"><div class="heart-gif"></div> 翻阅我们完整的爱情故事集 →</a></p>
         </div>
         
         <div class="dog-decoration" style="margin-top: 30px;">
-            <span class="paw-print">💕</span>
-            小黑陪小君宝宝一起记录我们的爱情故事 (∪｡∪)♡
-            <span class="paw-print">💕</span>
+            <div class="dog-gif-small"></div>
+            <span style="margin: 0 10px; color: #ff8fa3;">小黑陪小君宝宝一起记录我们的爱情故事 ♡</span>
+            <div class="dog-gif-small"></div>
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
