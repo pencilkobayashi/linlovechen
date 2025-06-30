@@ -1117,6 +1117,52 @@ button:active {
         margin: 8px 0 0 0;
         font-size: 14px;
     }
+    
+    /* 手机端流星效果适配 */
+    @keyframes shooting {
+        0% {
+            transform: translateX(0) translateY(0) rotate(-45deg);
+            opacity: 0;
+        }
+        3% {
+            opacity: 1;
+        }
+        88% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-400px) translateY(400px) rotate(-45deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes shining {
+        0% { 
+            width: 0; 
+            opacity: 0;
+        }
+        25% { 
+            width: 60px; 
+            opacity: 1;
+        }
+        75% { 
+            width: 60px; 
+            opacity: 1;
+        }
+        100% { 
+            width: 0; 
+            opacity: 0;
+        }
+    }
+    
+    .shooting-star {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .shooting-star::before {
+        height: 3px;
+    }
 }
 
 /* 超小屏幕适配 */
@@ -1148,5 +1194,56 @@ button:active {
     .nav-bar a {
         padding: 10px 12px;
         font-size: 14px;
+    }
+    
+    /* 超小屏幕流星效果适配 */
+    @keyframes shooting {
+        0% {
+            transform: translateX(0) translateY(0) rotate(-45deg);
+            opacity: 0;
+        }
+        3% {
+            opacity: 1;
+        }
+        88% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-300px) translateY(300px) rotate(-45deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes shining {
+        0% { 
+            width: 0; 
+            opacity: 0;
+        }
+        25% { 
+            width: 40px; 
+            opacity: 1;
+        }
+        75% { 
+            width: 40px; 
+            opacity: 1;
+        }
+        100% { 
+            width: 0; 
+            opacity: 0;
+        }
+    }
+    
+    .shooting-star {
+        width: 3px;
+        height: 3px;
+    }
+    
+    .shooting-star::before {
+        height: 2px;
+    }
+    
+    /* 减少流星数量，提升性能 */
+    .shooting-star:nth-child(n+16) {
+        display: none;
     }
 }
