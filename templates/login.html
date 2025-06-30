@@ -69,10 +69,21 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
       </head>
     <body>
         <!-- 浪漫的流星背景 -->
         <div class="shooting-stars">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
             <div class="shooting-star"></div>
             <div class="shooting-star"></div>
             <div class="shooting-star"></div>
@@ -126,5 +137,33 @@
                 <div class="heart-gif"></div>
            </div>
       </div>
+      <script>
+          // 动图列表
+          const gifList = [
+              '/static/heart-dog.gif',
+              '/static/couple-dance.gif', 
+              '/static/ezgif-47812851c06b81.gif',
+              '/static/20220302224226_e3e67.gif'
+          ];
+
+          // 随机选择动图
+          function getRandomGif() {
+              return gifList[Math.floor(Math.random() * gifList.length)];
+          }
+
+          // 应用随机动图到所有动图元素
+          function applyRandomGifs() {
+              // 为每个动图元素独立随机选择动图
+              const gifElements = document.querySelectorAll('.dog-gif, .dog-gif-small, .heart-gif, .heart-gif-large');
+              gifElements.forEach(element => {
+                  element.style.backgroundImage = `url('${getRandomGif()}')`;
+              });
+          }
+
+          // 页面加载完成后应用随机动图
+          document.addEventListener('DOMContentLoaded', () => {
+              applyRandomGifs();
+          });
+      </script>
   </body>
 </html>

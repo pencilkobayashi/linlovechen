@@ -71,6 +71,16 @@
           <div class="shooting-star"></div>
           <div class="shooting-star"></div>
           <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
+          <div class="shooting-star"></div>
       </div>
       
       <!-- 闪烁的星星背景 -->
@@ -100,8 +110,8 @@
         
         <div class="nav-bar">
             <a href="{{ url_for('home') }}"><div class="heart-gif"></div> 记录甜蜜时光</a>
-            <a href="{{ url_for('notes_list') }}">📚 我们的回忆册</a>
-            <a href="{{ url_for('logout') }}">🚪 暂时离开小窝</a>
+            <a href="{{ url_for('notes_list') }}"><div class="heart-gif"></div> 我们的回忆册</a>
+            <a href="{{ url_for('logout') }}"><div class="heart-gif"></div> 暂时离开小窝</a>
         </div>
         
         <h1><div class="heart-gif-large"></div> 小黑与小君宝宝的专属爱情档案 <div class="heart-gif-large"></div></h1>
@@ -131,5 +141,6 @@
             <div class="dog-gif-small"></div>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html> 
