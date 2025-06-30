@@ -1119,49 +1119,95 @@ button:active {
     }
     
     /* 手机端流星效果适配 */
-    @keyframes shooting {
-        0% {
-            transform: translateX(0) translateY(0) rotate(-45deg);
-            opacity: 0;
-        }
-        3% {
-            opacity: 1;
-        }
-        88% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateX(-400px) translateY(400px) rotate(-45deg);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes shining {
-        0% { 
-            width: 0; 
-            opacity: 0;
-        }
-        25% { 
-            width: 60px; 
-            opacity: 1;
-        }
-        75% { 
-            width: 60px; 
-            opacity: 1;
-        }
-        100% { 
-            width: 0; 
-            opacity: 0;
-        }
+    .shooting-stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+        overflow: visible;
     }
     
     .shooting-star {
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
+        /* 增强发光效果，更容易看见 */
+        box-shadow: 
+            0 0 15px currentColor,
+            0 0 30px currentColor,
+            0 0 45px currentColor,
+            0 0 60px currentColor;
     }
     
     .shooting-star::before {
-        height: 3px;
+        height: 4px;
+        width: 80px;
+        /* 增强尾巴发光效果 */
+        box-shadow: 
+            0 0 12px currentColor,
+            0 0 24px currentColor,
+            0 0 36px currentColor;
+    }
+    
+    /* 简化流星，只保留最亮的几个 */
+    .shooting-star:nth-child(1) { 
+        top: 10%; 
+        left: 85%; 
+        background: #ffffff;
+        animation-duration: 3s;
+        animation-delay: 0s;
+    }
+    .shooting-star:nth-child(2) { 
+        top: 25%; 
+        left: 90%; 
+        background: #ffffff;
+        animation-duration: 2.5s;
+        animation-delay: 1s;
+    }
+    .shooting-star:nth-child(3) { 
+        top: 5%; 
+        left: 75%; 
+        background: #ffffff;
+        animation-duration: 3.5s;
+        animation-delay: 2s;
+    }
+    .shooting-star:nth-child(4) { 
+        top: 40%; 
+        left: 80%; 
+        background: #ffffff;
+        animation-duration: 2.8s;
+        animation-delay: 0.5s;
+    }
+    .shooting-star:nth-child(5) { 
+        top: 15%; 
+        left: 95%; 
+        background: #ffffff;
+        animation-duration: 3.2s;
+        animation-delay: 1.5s;
+    }
+    
+    /* 隐藏其他流星以提高性能和可见性 */
+    .shooting-star:nth-child(n+6) {
+        display: none;
+    }
+    
+    /* 手机端流星测试 - 确保可见性 */
+    .shooting-star:nth-child(1)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(2)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(3)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(4)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(5)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
     }
 }
 
@@ -1197,53 +1243,61 @@ button:active {
     }
     
     /* 超小屏幕流星效果适配 */
-    @keyframes shooting {
-        0% {
-            transform: translateX(0) translateY(0) rotate(-45deg);
-            opacity: 0;
-        }
-        3% {
-            opacity: 1;
-        }
-        88% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateX(-300px) translateY(300px) rotate(-45deg);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes shining {
-        0% { 
-            width: 0; 
-            opacity: 0;
-        }
-        25% { 
-            width: 40px; 
-            opacity: 1;
-        }
-        75% { 
-            width: 40px; 
-            opacity: 1;
-        }
-        100% { 
-            width: 0; 
-            opacity: 0;
-        }
-    }
-    
     .shooting-star {
-        width: 3px;
-        height: 3px;
+        width: 5px;
+        height: 5px;
+        /* 更强的发光效果 */
+        box-shadow: 
+            0 0 20px currentColor,
+            0 0 40px currentColor,
+            0 0 60px currentColor;
     }
     
     .shooting-star::before {
-        height: 2px;
+        height: 3px;
+        width: 60px;
+        /* 更强的尾巴发光效果 */
+        box-shadow: 
+            0 0 15px currentColor,
+            0 0 30px currentColor;
     }
     
-    /* 减少流星数量，提升性能 */
-    .shooting-star:nth-child(n+16) {
+    /* 超小屏幕只保留3个最亮的流星 */
+    .shooting-star:nth-child(1) { 
+        top: 15%; 
+        left: 85%; 
+        background: #ffffff;
+        animation-duration: 2.5s;
+        animation-delay: 0s;
+    }
+    .shooting-star:nth-child(2) { 
+        top: 30%; 
+        left: 90%; 
+        background: #ffffff;
+        animation-duration: 3s;
+        animation-delay: 1s;
+    }
+    .shooting-star:nth-child(3) { 
+        top: 8%; 
+        left: 78%; 
+        background: #ffffff;
+        animation-duration: 2.8s;
+        animation-delay: 2s;
+    }
+    
+    /* 隐藏其他流星 */
+    .shooting-star:nth-child(n+4) {
         display: none;
+    }
+    
+    /* 超小屏幕流星测试 - 确保可见性 */
+    .shooting-star:nth-child(1)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(2)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
+    }
+    .shooting-star:nth-child(3)::before {
+        background: linear-gradient(-90deg, #ffffff, #ffffff, rgba(255,255,255,0.95), rgba(255,255,255,0.8), rgba(255,255,255,0.6), transparent);
     }
 }
