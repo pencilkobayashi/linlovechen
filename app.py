@@ -5,7 +5,8 @@ import os
 from datetime import datetime
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
-app.config.from_object(Config)
+config = Config()
+app.config.from_object(config)
 
 @app.before_request
 def check_login():
@@ -18,7 +19,7 @@ def check_login():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['password'] == app.config['PASSWORD']:
+        if request.form['password'] == config.PASSWORD:
             session['logged_in'] = True
             return redirect(url_for('home'))
         else:
@@ -39,6 +40,36 @@ def notes_list():
     """查看所有日记列表"""
     notes = load_notes()
     return render_template('notes_list.html', notes=notes)
+
+@app.route('/change-password', methods=['GET', 'POST'])
+def change_password():
+    """更改密码"""
+    error = None
+    success = None
+    
+    if request.method == 'POST':
+        current_password = request.form.get('current_password', '').strip()
+        new_password = request.form.get('new_password', '').strip()
+        confirm_password = request.form.get('confirm_password', '').strip()
+        
+        # 验证当前密码
+        if current_password != config.PASSWORD:
+            error = "当前密码错误！"
+        elif not new_password:
+            error = "新密码不能为空！"
+        elif len(new_password) < 6:
+            error = "新密码长度至少6位！"
+        elif new_password != confirm_password:
+            error = "两次输入的新密码不一致！"
+        else:
+            # 保存新密码
+            try:
+                Config.save_password(new_password)
+                success = "密码修改成功！"
+            except Exception as e:
+                error = f"密码保存失败：{str(e)}"
+    
+    return render_template('change_password.html', error=error, success=success)
 
 @app.route('/another-page')
 def another_page():
